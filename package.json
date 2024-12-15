@@ -1,0 +1,38 @@
+{
+  "name": "be-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src/**/*.ts --fix",
+    "clean": "rimraf dist",
+    "prebuild": "yarn run clean",
+    "build": "swc src -d dist --config-file .swcrc && mv dist/src/* dist && rmdir dist/src",
+    "type": "tsc --noEmit",
+    "test": "jest",
+    "start": "node dist/index.js",
+    "start:dev": "nodemon src/index.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@stylistic/eslint-plugin": "^2.6.4",
+    "@swc-node/register": "^1.10.9",
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "^1.7.14",
+    "@swc/jest": "^0.2.36",
+    "@types/dotenv": "^8.2.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.5.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.9.0",
+    "eslint-plugin-jest": "^28.8.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

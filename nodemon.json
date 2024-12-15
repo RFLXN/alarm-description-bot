@@ -1,0 +1,13 @@
+{
+  "watch": [ "src" ],
+  "execMap": {
+    "ts": "node -r @swc-node/register"
+  },
+  "env": {
+    "SWCRC": "true",
+    "NODE_ENV": "development"
+  },
+  "delay": 1.5,
+  "ext": "ts",
+  "verbose": true
+}
