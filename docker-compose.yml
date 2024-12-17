@@ -1,0 +1,11 @@
+services:
+  alarm-bot:
+    image: alarm-bot
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alarm-bot
+    restart: unless-stopped
+    environment:
+      DISCORD_TOKEN: "${DISCORD_TOKEN}"
+      TZ: "${TZ}"
