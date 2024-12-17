@@ -1,0 +1,26 @@
+datasource db {
+    provider = "sqlite"
+    url      = env("SQLITE_PATH")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Schedule {
+    id          Int          @id
+    guildId     String
+    channelId   String
+    creatorId   String
+    message     String
+    cron        String
+    subscribers Subscriber[]
+}
+
+model Subscriber {
+    userId     String
+    Schedule   Schedule @relation(fields: [scheduleId], references: [id])
+    scheduleId Int
+
+    @@id([userId, scheduleId])
+}
